@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Ana Sayfa" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="Profilim" />
+        <item
+            android:id="@+id/kullaniciListe"
+            android:icon="@drawable/ic_delete_black_24dp"
+            android:title="Kullanici Listesi" />
+        <item
+            android:id="@+id/geridonusum"
+            android:icon="@drawable/ic_delete_black_24dp"
+            android:title="Geri Donusum" />
+    </group>
+
+    <item android:title="Ayarlar">
+        <menu>
+            <item
+                android:id="@+id/hakkimizda"
+                android:icon="@drawable/ic_help_outline_black_24dp"
+                android:title="Hakkimizda" />
+
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_clear_black_24dp"
+                android:title="Çıkış Yap" />
+
+        </menu>
+    </item>
+
+</menu>
