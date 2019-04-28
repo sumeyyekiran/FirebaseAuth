@@ -44,7 +44,7 @@ public class VeriDeposu {
     public static ArrayList<VeriDeposu> getData() {
         ArrayList<VeriDeposu> productList = new ArrayList<VeriDeposu>();
         int productImages[] = {R.drawable.desert, R.drawable.exchange, R.drawable.green_tea, R.drawable.key, R.drawable.like, R.drawable.networking, R.drawable.pyramid, R.drawable.rose, R.drawable.smartphone};
-        String[] productNames = {"Geleceği Yazanlar", "Paycell", "Tv+", "Dergilik", "Bip", "GNC", "Hesabım", "Sim", "LifeBox"};
+        String[] productNames = {"Desert", "Exchange", "Green Tea", "Key", "Like", "Networking", "Pyramid", "Rose", "Smartphone"};
 
         for (int i = 0; i < productImages.length; i++) {
             VeriDeposu temp = new VeriDeposu();

@@ -1,62 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ProfilFra">
+    android:layout_height="match_parent">
 
     <LinearLayout
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/userProfileIcon"
+            android:src="@drawable/ic_launcher_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#ffa500"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
+            android:id="@+id/guncellebtn"
+            android:text="Duzenle"/>
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="15dp"
-                android:src="@drawable/rose" />
-
-            <ImageView
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:id="@+id/resimduzenle"
-                android:src="@drawable/tulip" />
-
-        </LinearLayout>
-<LinearLayout
-    android:layout_marginTop="20dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:layout_gravity="center">
-    <EditText
-        android:hint="Kullanici adi giriniz"
-        android:id="@+id/kullaniciadi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="15dp" />
         <EditText
-    android:id="@+id/emailgetir"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textSize="15dp" />
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kaydet" />
+            android:id="@+id/userNicknameUpdate"
+            android:hint="Kullanıcı adınız"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
+        <EditText
+            android:id="@+id/userEmailUpdate"
+            android:hint="Email adresiniz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/userPasswordUpdate"
+            android:inputType="textPassword"
+            android:hint="Parola"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/updateBttn"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#ffa500"
+            android:text="Güncelle"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

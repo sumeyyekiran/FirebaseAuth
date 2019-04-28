@@ -25,7 +25,7 @@
         <TextView
             android:id="@+id/userName"
             android:textStyle="bold"
-            android:text="asdada"
+            android:text="Goster"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/userPicture"

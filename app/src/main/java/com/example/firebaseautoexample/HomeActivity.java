@@ -3,6 +3,7 @@ package com.example.firebaseautoexample;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -16,15 +17,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 public class HomeActivity extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
     TextView text;
     FirebaseUser firebaseUser;
+    FirebaseStorage firebaseStorage;
+    ImageView imageView;
 
     @Override
     public void onBackPressed() {
@@ -46,7 +55,9 @@ public class HomeActivity extends AppCompatActivity {
         text=findViewById(R.id.hosgeldiniz);
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseUser=firebaseAuth.getCurrentUser();
-    text.setText("Hosgeldiniz");
+        firebaseStorage = FirebaseStorage.getInstance();
+
+
         final DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -106,18 +117,36 @@ public class HomeActivity extends AppCompatActivity {
 
         });
 
-        View header=navigationView.getHeaderView(0);
+        final View header=navigationView.getHeaderView(0);
         TextView textView=header.findViewById(R.id.textView);
         textView.setText(firebaseUser.getEmail());
-        ImageView imageView=header.findViewById(R.id.imageView);
-        imageView.setOnClickListener(new View.OnClickListener() {
+        imageView=header.findViewById(R.id.imageView);
+
+        StorageReference storageRef = firebaseStorage.getReference().child("users").child(firebaseAuth.getCurrentUser().getUid());
+        storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+
+                Picasso.get().load(uri).fit().centerCrop().into(imageView);
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+
+
+            }
+        });
+
+        /*imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ProfilFra profilFra=new ProfilFra();
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,profilFra).commit();
 
             }
-        });
+        });*/
     }
 
 
